@@ -1,14 +1,14 @@
 import './App.css';
 
 import Header from './Header'
-import Informations from './Informations'
+import Information from './Information'
 import Footer from './Footer'
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Informations />
+      <Information />
       <Footer />
     </div>
   );
