@@ -1,10 +1,16 @@
 .App {
   background-color: #04441B;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   font-size: calc(2px + 2vmin);
   color: white;
+}
+
+.aa {
+  margin-left: 100000px;
+}
+
+.bb {
+  margin-right: 10000px;
 }
 
 .App-logo {
