@@ -9,8 +9,8 @@ function Information() {
         <div className="Information">
             <h1> Tokeneconomics </h1>
             <ul>
-                <li> Total Supply : 100,000,000,000,000,000 SPORE</li>
                 <li> Dev fund : 0%</li>
+                <li> Total Supply : <b>100,000,000,000,000,000</b> SPORE</li>
                 <><BurnedTokens/></>
             </ul>
             <h1> What is Spore Finance </h1>
