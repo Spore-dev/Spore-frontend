@@ -11,13 +11,8 @@ import CardComponent from "./components/CardComponent";
 import Web3 from "web3";
 import {sporeABI} from "./utils/SporeAbi";
 const url = (name, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
-const Pink = ({ children }) => <span style={{ color: '#FF6AC1' }}>{children}</span>
-const Yellow = ({ children }) => <span style={{ color: '#EFF59B' }}>{children}</span>
-const Lightblue = ({ children }) => <span style={{ color: '#9AEDFE' }}>{children}</span>
-const Green = ({ children }) => <span style={{ color: '#57EE89' }}>{children}</span>
-const Blue = ({ children }) => <span style={{ color: '#57C7FF' }}>{children}</span>
-const Gray = ({ children }) => <span style={{ color: '#909090' }}>{children}</span>
 
+const TOTAL_SUPPLY = 100000000000000000;
 
 class App extends React.Component {
 
@@ -120,8 +115,8 @@ class App extends React.Component {
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {/*<img src={url('bash')} style={{ width: '40%' }} />*/}
               <CardComponent title="Dev Fund" content=" 0 %"></CardComponent>
-              <CardComponent title="Tokens" content={`Total Initial Supply : 100,000,000,000,000,000 SPORE Number of burned tokens : ${this.state.numberOfBurnedTokens}`} ></CardComponent>
-              <CardComponent title="Percentage"></CardComponent>
+              <CardComponent title="Tokens" content={["Total Initial Supply : 100,000,000,000,000,000 SPORE", <br/>  ,`Number of burned tokens : ${this.state.numberOfBurnedTokens} SPORE`]} ></CardComponent>
+              <CardComponent title="Percentage" content={[`% Burned: ${this.state.percentageOfBurnedTokens} %`]}></CardComponent>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -129,6 +124,7 @@ class App extends React.Component {
               speed={-0}
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               onClick={() => this.parallax.scrollTo(0)}>
+              14
               <img src={url('clients-main')} style={{ width: '40%' }} />
               14
           </ParallaxLayer>
@@ -152,7 +148,14 @@ class App extends React.Component {
         window.ethereum.enable();
         const sporeERC20 = new window.web3.eth.Contract(sporeABI, "0x6e7f5C0b9f4432716bDd0a77a3601291b9D9e985")
         const burnedTokens = await sporeERC20.methods.balanceOf("0x000000000000000000000000000000000000dEaD").call()
-        this.setState({numberOfBurnedTokens: (burnedTokens /10**9 )})
+        this.setState({
+            numberOfBurnedTokens: this.numberWithCommas((burnedTokens / 10 ** 9).toFixed(0)),
+            percentageOfBurnedTokens: ((burnedTokens / 10 ** 9) / TOTAL_SUPPLY * 100).toFixed(2)
+        })
+    }
+
+    numberWithCommas(x) {
+        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
 }
 
