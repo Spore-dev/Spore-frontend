@@ -1,15 +1,7 @@
-.Header {
-  justify-content: left;
-  font-size: calc(2px + 2vmin);
-  position: fixed;
-  width: 100%;
-  top: 10px;
-  display: inline-block;
-}
-
 .SubHeader {
   display: inline-block;
-  padding-left: 60%;
+    color: red;
+    padding-left: 60%;
 }
 
 #heading h1, h2 {
@@ -19,7 +11,7 @@
 
 a {
   font-size: calc(2px + 2vmin);
-  color: white;
+  color: black;
   text-decoration: underline;
 }
 a:hover {

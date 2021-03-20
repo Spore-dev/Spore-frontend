@@ -6,11 +6,3 @@
 }
 
 ul { margin: 2px;}
-
-a {
-  color: white;
-  text-decoration: underline;
-}
-a:hover {
-  cursor: pointer;
-}
