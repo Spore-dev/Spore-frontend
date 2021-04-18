@@ -12,7 +12,8 @@ class BurnedTokens extends React.Component {
     this.state = {
       numberOfBurnedTokens: -1,
       percentageOfBurnedTokens: -1,
-      numberOfTokenHolders: -1
+      numberOfTokenHolders: -1,
+      numberOfTokenHoldersBSC: -1
     };
   }
 
@@ -27,6 +28,9 @@ class BurnedTokens extends React.Component {
         </li>
         <li>
           Number of token holders : <b>{this.state.numberOfTokenHolders}</b>
+        </li>
+        <li>
+          Number of token holders on BSC : <b>{this.state.numberOfTokenHoldersBSC}</b>
         </li>
       </>
     );
@@ -84,6 +88,23 @@ class BurnedTokens extends React.Component {
       const items = res.data.data.items;
       this.setState({
         numberOfTokenHolders: items.length
+      });
+    }
+  }
+
+  async getTokenHoldersBSC() {
+    const res = await axios.get(
+      'https://api.covalenthq.com/v1/56/tokens/0x33a3d962955a3862c8093d1273344719f03ca17c/token_holders/?page-size=999999'
+    );
+
+    if (
+      res.data !== undefined &&
+      res.data.data !== undefined &&
+      res.data.data.items !== undefined
+    ) {
+      const items = res.data.data.items;
+      this.setState({
+        numberOfTokenHoldersBSC: items.length
       });
     }
   }
