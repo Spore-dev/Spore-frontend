@@ -39,10 +39,12 @@ class BurnedTokens extends React.Component {
   async componentDidMount() {
     await this.getBurnedTokens();
     await this.getTokenHolders();
+    await this.getTokenHoldersBSC();
     // Will trigger a refresh every minutes
     setTimeout(async () => {
       await this.getBurnedTokens();
       await this.getTokenHolders();
+      await this.getTokenHoldersBSC();
     }, 60000);
   }
 
