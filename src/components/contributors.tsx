@@ -2,6 +2,12 @@ import './contributors.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+/*
+ * List made just in case someone wants to contribute to the repo but remain
+ * anonymous in the website.
+ */
+const anonList = [];
+
 const Contributors = () => {
   const [contrib, setContributors] = useState([]);
 
@@ -16,7 +22,13 @@ const Contributors = () => {
      axios.get(
       'https://api.github.com/repos/SporeFinance/Spore-frontend/contributors'
     ).then( res =>{
-      setContributors(res.data);
+      setContributors(
+        res.data.filter(
+          function (contributor) {
+             return !anonList.includes(contributor.login);
+          }
+        )
+      );
     });
   }
 
