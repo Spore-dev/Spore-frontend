@@ -2,13 +2,15 @@ import './contributors.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-/*
- * List made just in case someone wants to contribute to the repo but remain
- * anonymous in the website.
- */
-const anonList = [];
 
 const Contributors = () => {
+
+   /*
+    * List made just in case someone wants to contribute to the repo but remain
+    * anonymous in the website.
+    */
+  const anonList: any[] = [];
+
   const [contrib, setContributors] = useState([]);
 
   useEffect(() => {
