@@ -35,10 +35,12 @@ const approve = async () => {
     );
     var account = await win.web3.eth.getAccounts();
     account = account[0];
-    var amount = ethers.BigNumber.from(docu.getElementById("spores").value).mul(10 ** 9);
+    var amount = docu.getElementById("spores").value
+    var integer = ethers.BigNumber.from(amount.slice(0, amount.indexOf('.'))).mul(10 ** 9);
+    console.log(integer)
     try {
         await SporeContract.methods
-            .approve(AvaxBridgeAdress, amount)
+            .approve(AvaxBridgeAdress, integer)
             .send({ from: account, gasPrice: 225000000000 });
     } catch (error) {
         alert(error);
@@ -51,11 +53,12 @@ const swapFromAVAX = async () => {
     const AvaxBridgeContract = new win.web3.eth.Contract(AvaxBridgeABI, AvaxBridgeAdress);
     var account = await win.web3.eth.getAccounts();
     account = account[0];
-    var amount = ethers.BigNumber.from(docu.getElementById("spores").value).mul(10 ** 9);
+    var amount = docu.getElementById("spores").value
+    var integer = ethers.BigNumber.from(amount.slice(0, amount.indexOf('.'))).mul(10 ** 9);
     var fees = ethers.BigNumber.from("30000000000000000")
     try {
         await AvaxBridgeContract.methods
-            .burn(amount)
+            .burn(integer)
             .send({ from: account, gasPrice: 225000000000, value: fees });
     } catch (error) {
         alert(error);
@@ -68,17 +71,18 @@ const swapFromBSC = async () => {
     const BscBridgeContract = new win.web3.eth.Contract(BscBridgeABI, BscBridgeAdress);
     var account = await win.web3.eth.getAccounts();
     account = account[0];
-    var amount = ethers.BigNumber.from(docu.getElementById("spores2").value).mul(10 ** 9);
+    var amount = docu.getElementById("spores2").value
+    var integer = ethers.BigNumber.from(amount.slice(0, amount.indexOf('.'))).mul(10 ** 9);
     var fees = ethers.BigNumber.from("5000000000000000")
     try {
         if (docu.getElementById("checkbox").checked) {
             var percent = 10;
             await BscBridgeContract.methods
-                .burnAndSwap(account, amount, percent)
+                .burnAndSwap(account, integer, percent)
                 .send({ from: account, value: fees });
         } else {
             await BscBridgeContract.methods
-                .burn(account, amount)
+                .burn(account, integer)
                 .send({ from: account, value: fees });
         }
     } catch (error) {
