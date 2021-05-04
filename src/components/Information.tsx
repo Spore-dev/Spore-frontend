@@ -58,7 +58,7 @@ const Information = () => {
       <section className='bg-white'>
         <div className='container information  py-5'>
           <div className='row py-5'>
-            <div className='col-md-5 text-center'>
+            <div className='col-md-5 pb-3 text-sm-center'>
               <img className='img-fluid' alt='Burn Token' src='spore_256.png' />
             </div>
             <div className='col-md-7 text-left'>
@@ -281,7 +281,7 @@ const Information = () => {
           </div>
         </div>
       </section>
-      <div className='container information py-5'>
+      <div className='container information pt-5'>
         <div className='row py-5'>
           <div className='col-md-12 text-center'>
             <h2 className='feature pb-4'>Links</h2>
