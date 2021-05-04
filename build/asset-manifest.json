@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.bdc774ae.chunk.css",
-    "main.js": "/static/js/main.b31b3e5c.chunk.js",
-    "main.js.map": "/static/js/main.b31b3e5c.chunk.js.map",
+    "main.css": "/static/css/main.4b79aab1.chunk.css",
+    "main.js": "/static/js/main.221c188b.chunk.js",
+    "main.js.map": "/static/js/main.221c188b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.76723823.js",
     "runtime-main.js.map": "/static/js/runtime-main.76723823.js.map",
     "static/js/2.3062c585.chunk.js": "/static/js/2.3062c585.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.6fa5618b.chunk.js": "/static/js/3.6fa5618b.chunk.js",
     "static/js/3.6fa5618b.chunk.js.map": "/static/js/3.6fa5618b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.bdc774ae.chunk.css.map": "/static/css/main.bdc774ae.chunk.css.map",
+    "static/css/main.4b79aab1.chunk.css.map": "/static/css/main.4b79aab1.chunk.css.map",
     "static/js/2.3062c585.chunk.js.LICENSE.txt": "/static/js/2.3062c585.chunk.js.LICENSE.txt",
     "static/media/how_to_buy.d27bfe52.pdf": "/static/media/how_to_buy.d27bfe52.pdf"
   },
   "entrypoints": [
     "static/js/runtime-main.76723823.js",
     "static/js/2.3062c585.chunk.js",
-    "static/css/main.bdc774ae.chunk.css",
-    "static/js/main.b31b3e5c.chunk.js"
+    "static/css/main.4b79aab1.chunk.css",
+    "static/js/main.221c188b.chunk.js"
   ]
 }
