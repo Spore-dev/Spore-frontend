@@ -14,7 +14,7 @@ const Contributors = () => {
 
   const getContributorsJson = () => {
     axios.get(
-      'https://api.github.com/repos/SporeFinance/Spore-frontend/contributors'
+      'https://api.github.com/repos/SporeFinance/Spore-frontend/contributors?per_page=15'
     ).then(res => {
       setContributors(res.data);
     });
@@ -22,7 +22,7 @@ const Contributors = () => {
 
   return (
     <>
-      <div className='col-md-12'>
+      <div className='col-md-12 text-md-center'>
         {
           contrib.map((data: any) => {
             return <div className='contributor-style' key={data.html_url}>
