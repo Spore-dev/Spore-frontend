@@ -5,7 +5,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className='container-fluid footer pt-5'>
+    <div className='container-fluid footer'>
       <div className='row'>
         <div className='col-md-12 text-center py-4'>
           <a
@@ -15,7 +15,7 @@ const Footer = () => {
             rel='noopener noreferrer'
           >
             {' '}
-            Made with &hearts; by the Spore community
+            Made with <i className='footer-hearth fa fa-heart'></i> by the Spore community
           </a>
         </div>
       </div>

@@ -1,5 +1,37 @@
 .footer a.credit {
-  font-size: 42px;
+  font-size: 38px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+}
+
+.footer a.credit:hover {
+  color: #6b4e3b;
+}
+
+.credit .fa-heart{
+  animation: 2.5s ease 0s normal none infinite running animateHeart;
+  color: #ec1d23;
+  font-size: 33px;
+}
+
+/* Heart Animation pulse*/
+@keyframes animateHeart {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.2);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
