@@ -28,7 +28,7 @@ const Contributors = () => {
             return <div className='contributor-style' key={data.html_url}>
               <a href={data.html_url} target="_blank" rel="noreferrer">
                 <img src={data.avatar_url} alt='' />
-                <span>{data.login}</span>
+                <span className='pl-2' >{data.login}</span>
               </a>
             </div>
           })
