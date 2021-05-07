@@ -1,0 +1,29 @@
+.information .box-rounded {
+    background-color: #fff;
+    color: #212121;
+    padding: 15px 20px;
+    border-radius: 15px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.information .box-rounded h4 {
+    color:#6B4E3B;
+    padding: 15px 0;
+}
+
+.btn-secondary {
+    background-color: #4B5626;
+    border-color: #4B5626;
+}
+
+.text-secondary-color {
+    color: #4B5626;
+    font-weight: bold;
+}
+
+.h-100vh {
+    height: calc(100vh - 300px);
+}
