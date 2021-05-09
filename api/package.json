@@ -1,0 +1,10 @@
+{
+  "name": "spore-api",
+  "version": "1.0.0",
+  "main": "spore.js",
+  "author": "badangrycloud",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^1.3.4"
+  }
+}
