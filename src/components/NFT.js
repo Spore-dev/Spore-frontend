@@ -2585,6 +2585,8 @@ export default class NFT extends React.Component {
 
   render() {
     const marketPlaceBuilder = [];
+    let MarketplaceForSale = <> </>;
+
     for (let i = 0; i <= this.state.totalCharacters - 1; i++) {
       if (this.state.bazaar[i].price > 0) {
         console.log("ok");
@@ -2593,21 +2595,23 @@ export default class NFT extends React.Component {
       }
     }
     if (marketPlaceBuilder.length > 0) {
-      var MarketplaceForSale = marketPlaceBuilder.map((item) => (
-        <>
+      MarketplaceForSale = marketPlaceBuilder.map((item) => (
+        <React.Fragment key={item[0]}>
           <li>ID: {item[0]}</li>
           <li>Price: {item[1]} Avax</li>
-        </>
+        </React.Fragment>
       ));
     } else {
-      var MarketplaceForSale = <> No NFTs for Sale</>;
+      MarketplaceForSale = <> No NFTs for Sale</>;
     }
+
     console.log(marketPlaceBuilder);
 
+    let image = <></>;
     if (this.state.balance > 0) {
-      var image = <ReturnTokenURI tokensOfOwner={this.state.tokensOfOwner} />;
+      image = <ReturnTokenURI tokensOfOwner={this.state.tokensOfOwner} />;
     } else {
-      var image = <> You dont own any NFTs yet! </>;
+      image = <> You dont own any NFTs yet! </>;
     }
 
     if (this.isWeb3) {
@@ -2624,12 +2628,12 @@ export default class NFT extends React.Component {
             <div className='row pb-5 py-2'>
               <div className='col-lg-12'>
                 <h2 className='feature pb-2 text-center'>
-                  <span>NFT version 1</span> : Vision, Pricing & Fair Launch
+                  <span>NFT version 1</span> : Vision, Pricing &nbsp; Fair Launch
                 </h2>
-                <h3 class="text-center pb-2">Welcome to out first generation of NFTs</h3>
-                <div class="row">
-                  <div class="col-lg-4 col-sm-12">
-                    <div class="box-rounded">
+                <h3 className="text-center pb-2">Welcome to out first generation of NFTs</h3>
+                <div className="row">
+                  <div className="col-lg-4 col-sm-12">
+                    <div className="box-rounded">
                     <h4>Objective</h4>
                     <p>The stepping stone in our road to decentralized governance.                      
                       Burn an additional 1.328% of the totalsupply.
@@ -2644,7 +2648,7 @@ export default class NFT extends React.Component {
                         <li>Next 8 NFTs: 28t each </li>
                         <li>Last 4 NFTs: 100t each </li>
                       </ul>
-                      <p class='pt-4'>
+                      <p className='pt-4'>
                         This first generation of NFTs have a special meaning :
                         they will be used for setting up a system of
                         off-chain/on-chain governance over the next deployments
@@ -2652,32 +2656,32 @@ export default class NFT extends React.Component {
                         
                     </div>
                   </div>
-                  <div class="col-lg-4 col-sm-12">
-                    <div class="box-rounded">
+                  <div className="col-lg-4 col-sm-12">
+                    <div className="box-rounded">
                     <h4>Fair Launch</h4>
                     <p>After the public announcement, a timelock will be
                         activated allowing 24 hours to start buying the NFTs. All
                         SPORE used to mint the NFTs will go to the BURN address.</p>
 
                       <p>
-                        <b class="important">There is no "DEV" fund.</b> The NFTs can be traded at
+                        <b className="important">There is no "DEV" fund.</b> The NFTs can be traded at
                         our marketplace using AVAX for settlement.</p>
                         <p>A small SPORE
                         tax will be burnt every time anyone buys an NFT from the
                         Marketplace (0.25t SPORE).</p>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-sm-12">
-                    <div class="box-rounded">
+                  <div className="col-lg-4 col-sm-12">
+                    <div className="box-rounded">
                       <h4>Art Curation</h4>
                       <p>100% of the pieces have been made by community contribution.</p>
                       <p>Here an non exhaustive list about our artists (many thanks to them):</p>
                       <ul>
-                        <li>Artist A : <i class="fab fa-twitter"></i> @artistA</li>
-                        <li>Artist B : <i class="fab fa-twitter"></i> @artistB</li>
-                        <li>Artist C : <i class="fab fa-twitter"></i> @artistC</li>
-                        <li>Artist D : <i class="fab fa-twitter"></i> @artistD</li>
-                        <li>Artist E : <i class="fab fa-twitter"></i> @artistE</li>
+                        <li>Artist A : <i className="fab fa-twitter"></i> @artistA</li>
+                        <li>Artist B : <i className="fab fa-twitter"></i> @artistB</li>
+                        <li>Artist C : <i className="fab fa-twitter"></i> @artistC</li>
+                        <li>Artist D : <i className="fab fa-twitter"></i> @artistD</li>
+                        <li>Artist E : <i className="fab fa-twitter"></i> @artistE</li>
                       </ul>
                     </div>
                   </div>
@@ -2687,31 +2691,31 @@ export default class NFT extends React.Component {
             </div>
           </div>
           <section className="bg-white" id="claim">
-            <div class="container py-5">
-              <div class="row py-5">
-                <div class="col-md-12">
+            <div className="container py-5">
+              <div className="row py-5">
+                <div className="col-md-12">
                   <div>
-                    <h2 class="text-center">Claim your NFT and spread the Spore !</h2>
-                    <p class="mb-1">
+                    <h2 className="text-center">Claim your NFT and spread the Spore !</h2>
+                    <p className="mb-1">
                       <i>NFTs left to claim: {this.state.totalSupplyLeft}</i>
                     </p>
-                    <div class="input-group mb-0">
+                    <div className="input-group mb-0">
                       <input
                         type="number"
                         id="_approveFee"
-                        value="1000000000000000000000"
+                        defaultValue="1000000000000000000000"
                         placeholder="1000000000000000000000"
-                        class="form-control"
+                        className="form-control"
                       />
-                      <div class="input-group-append">
-                        <button onClick={approve} class="btn btn-primary">Approve</button>
+                      <div className="input-group-append">
+                        <button onClick={approve} className="btn btn-primary">Approve</button>
                       </div>
                     </div>
-                    <p class="text-muted">
+                    <p className="text-muted">
                       <b>*Note: </b>Values in wei. Default 100t SPORE.
                     </p>
-                    <p class="text-center">
-                      <button onClick={claim} class="btn btn-secondary btn-lg px-5 py-2 text-uppercase">Claim your NFT</button>
+                    <p className="text-center">
+                      <button onClick={claim} className="btn btn-secondary btn-lg px-5 py-2 text-uppercase">Claim your NFT</button>
                     </p>
                   </div>
                 </div>
@@ -2719,10 +2723,10 @@ export default class NFT extends React.Component {
             </div>
           </section>
           <section className='bg-white-darker'>
-            <div class="container information py-5">
+            <div className="container information py-5">
               <div className='row py-5'>
                 <div className='col-md-12 text-center'>
-                  <h2 class="text-secondary-color">Marketplace</h2>
+                  <h2 className="text-secondary-color">Marketplace</h2>
                 </div>
                 <div className='col-md-12'>
                   <ul>
@@ -2730,41 +2734,41 @@ export default class NFT extends React.Component {
                   </ul>
                   <br />
                     {" "}
-                    <div class="input-group">
+                    <div className="input-group">
                       <input
                         type="text"
                         id="_approveFee"
-                        value="100000000000"
-                        class="form-control"
+                        defaultValue="100000000000"
+                        className="form-control"
                       />
-                       <div class="input-group-append">
-                        <button onClick={approve} class="btn btn-primary">Approve Fee</button>
+                       <div className="input-group-append">
+                        <button onClick={approve} className="btn btn-primary">Approve Fee</button>
                       </div>
                     </div>
-                    <p class="text-muted">
+                    <p className="text-muted">
                     <b>*Note: </b>Values in wei. Only necessary if you havent approved before.</p>
-                    <div class="input-group">
+                    <div className="input-group">
                       <input
                         type="text"
                         id="_tokenID"
                         placeholder="NFT_ID (ex: 0)"
-                        class="form-control"
+                        className="form-control"
                       />
-                      <div class="input-group-append">
-                        <button onClick={NFTbuy} class="btn btn-primary">Buy NFT</button>
+                      <div className="input-group-append">
+                        <button onClick={NFTbuy} className="btn btn-primary">Buy NFT</button>
                       </div>
                     </div>
                 </div>
               </div>
             </div>
           </section>
-          <section class="bg-white">
-            <div class="container informations py-5">
-              <div class="row py-5">
-                <div class="col-md-12 text-center">
-                  <h2>Your NFTs <small class="text-muted font-italic">({this.state.balance})</small></h2>
+          <section className="bg-white">
+            <div className="container informations py-5">
+              <div className="row py-5">
+                <div className="col-md-12 text-center">
+                  <h2>Your NFTs <small className="text-muted font-italic">({this.state.balance})</small></h2>
                 </div>
-                <div class="row">
+                <div className="row">
                     {image}
                 </div>
               </div>
